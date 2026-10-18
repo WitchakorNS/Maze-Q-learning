@@ -1,0 +1,11 @@
+﻿seed,episode,training_env_steps,from_stage,stage_training_actions,recent_complete_episodes,training_success_rate,reason,to_stage
+0,50,3249,near,3249,50,0.88,success_threshold,middle
+0,100,5740,middle,2491,50,0.98,success_threshold,real_start
+1,50,2627,near,2627,50,0.96,success_threshold,middle
+1,100,5618,middle,2991,50,0.96,success_threshold,real_start
+2,50,2894,near,2894,50,0.9,success_threshold,middle
+2,100,5671,middle,2777,50,0.98,success_threshold,real_start
+3,50,2728,near,2728,50,0.92,success_threshold,middle
+3,100,5247,middle,2519,50,1.0,success_threshold,real_start
+4,50,3127,near,3127,50,0.94,success_threshold,middle
+4,100,5641,middle,2514,50,0.98,success_threshold,real_start

@@ -1,0 +1,6 @@
+﻿method,seed,checkpoint_episode,training_env_steps,epsilon,model,steps,env_reward,success,terminated,truncated,wall_hits,unique_cells,final_row,final_col
+q_learning,0,5000,107087,0.0,models/seed-0-ep-5000.json,18,83,True,True,False,0,19,8,8
+q_learning,1,5000,107319,0.0,models/seed-1-ep-5000.json,18,83,True,True,False,0,19,8,8
+q_learning,2,5000,107403,0.0,models/seed-2-ep-5000.json,18,83,True,True,False,0,19,8,8
+q_learning,3,5000,108193,0.0,models/seed-3-ep-5000.json,18,83,True,True,False,0,19,8,8
+q_learning,4,5000,108409,0.0,models/seed-4-ep-5000.json,18,83,True,True,False,0,19,8,8

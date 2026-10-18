@@ -1,0 +1,3 @@
+﻿method,episodes,successes,failures,success_rate_percent,total_env_steps,mean_steps_all,mean_steps_success,mean_env_reward,mean_wall_hits,wall_hit_rate_percent,mean_unique_cells,training_actions_per_seed,models_with_observed_success,mean_first_observed_success_step,models_with_three_point_success,mean_three_point_success_start_step
+plain,5,5,0,100.0,90,18,18,83,0,0.0,19,100000,5,5800,5,6800
+curriculum,5,5,0,100.0,90,18,18,83,0,0.0,19,100000,5,6800,5,7200

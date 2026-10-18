@@ -1,0 +1,11 @@
+﻿method,seed,training_env_steps,training_episodes,last_training_stage,first_observed_success_step,three_point_success_start_step,model,steps,env_reward,success,terminated,truncated,wall_hits,unique_cells,final_row,final_col
+plain,0,100000,4364,real_start,5000,7000,models/plain-seed-0-step-100000.json,18,83,True,True,False,0,19,8,8
+plain,1,100000,4358,real_start,6000,6000,models/plain-seed-1-step-100000.json,18,83,True,True,False,0,19,8,8
+plain,2,100000,4360,real_start,5000,8000,models/plain-seed-2-step-100000.json,18,83,True,True,False,0,19,8,8
+plain,3,100000,4354,real_start,6000,6000,models/plain-seed-3-step-100000.json,18,83,True,True,False,0,19,8,8
+plain,4,100000,4355,real_start,7000,7000,models/plain-seed-4-step-100000.json,18,83,True,True,False,0,19,8,8
+curriculum,0,100000,4428,real_start,7000,7000,models/curriculum-seed-0-step-100000.json,18,83,True,True,False,0,19,8,8
+curriculum,1,100000,4415,real_start,8000,8000,models/curriculum-seed-1-step-100000.json,18,83,True,True,False,0,19,8,8
+curriculum,2,100000,4421,real_start,6000,8000,models/curriculum-seed-2-step-100000.json,18,83,True,True,False,0,19,8,8
+curriculum,3,100000,4419,real_start,6000,6000,models/curriculum-seed-3-step-100000.json,18,83,True,True,False,0,19,8,8
+curriculum,4,100000,4415,real_start,7000,7000,models/curriculum-seed-4-step-100000.json,18,83,True,True,False,0,19,8,8

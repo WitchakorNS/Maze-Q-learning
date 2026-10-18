@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "method": "q_learning",
+  "created_at": "2026-10-18T15:19:12.832102+07:00",
+  "environment": {
+    "maze": [
+      "##########",
+      "#S..#....#",
+      "###.#.##.#",
+      "#...#..#.#",
+      "#.####.#.#",
+      "#......#.#",
+      "#.####.#.#",
+      "#.#....#.#",
+      "#...##..G#",
+      "##########"
+    ],
+    "start": [
+      1,
+      1
+    ],
+    "goal": [
+      8,
+      8
+    ],
+    "max_steps": 300,
+    "rewards": {
+      "walk": -1,
+      "wall": -5,
+      "goal": 100
+    },
+    "actions": [
+      "UP",
+      "RIGHT",
+      "DOWN",
+      "LEFT"
+    ]
+  },
+  "training": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "episodes_per_seed": 5000,
+    "alpha": 0.1,
+    "gamma": 0.95,
+    "epsilon_start": 1.0,
+    "epsilon_min": 0.05,
+    "epsilon_decay": 0.995,
+    "eval_interval": 100,
+    "total_training_env_steps": 538411,
+    "budget_unit": "episodes",
+    "action_masking": false,
+    "truncation_bootstraps": true,
+    "checkpoint_selection": "last_prescribed_episode",
+    "training_rng_restored_on_load": false
+  },
+  "evaluation": {
+    "epsilon": 0.0,
+    "updates": false,
+    "greedy_ties": "first_action_in_UP_RIGHT_DOWN_LEFT_order",
+    "rollouts_per_trained_seed": 1,
+    "fixed_start_goal_map": true,
+    "random_episodes_per_seed": 200
+  },
+  "q_learning": {
+    "episodes": 5,
+    "successes": 5,
+    "failures": 0,
+    "success_rate_percent": 100.0,
+    "total_env_steps": 90,
+    "mean_steps_all": 18,
+    "mean_steps_success": 18,
+    "mean_env_reward": 83,
+    "mean_wall_hits": 0,
+    "wall_hit_rate_percent": 0.0,
+    "mean_unique_cells": 19,
+    "seed_success_rate_sample_std_percent": 0.0
+  },
+  "random": {
+    "episodes": 1000,
+    "successes": 214,
+    "failures": 786,
+    "success_rate_percent": 21.4,
+    "total_env_steps": 279987,
+    "mean_steps_all": 279.987,
+    "mean_steps_success": 206.48130841121494,
+    "mean_env_reward": -835.941,
+    "mean_wall_hits": 144.392,
+    "wall_hit_rate_percent": 51.570965794840475,
+    "mean_unique_cells": 19.272,
+    "seed_success_rate_mean_percent": 21.4,
+    "seed_success_rate_sample_std_percent": 0.8944271909999159
+  },
+  "per_trained_seed": [
+    {
+      "method": "q_learning",
+      "seed": 0,
+      "checkpoint_episode": 5000,
+      "training_env_steps": 107087,
+      "epsilon": 0.0,
+      "model": "models/seed-0-ep-5000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "q_learning",
+      "seed": 1,
+      "checkpoint_episode": 5000,
+      "training_env_steps": 107319,
+      "epsilon": 0.0,
+      "model": "models/seed-1-ep-5000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "q_learning",
+      "seed": 2,
+      "checkpoint_episode": 5000,
+      "training_env_steps": 107403,
+      "epsilon": 0.0,
+      "model": "models/seed-2-ep-5000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "q_learning",
+      "seed": 3,
+      "checkpoint_episode": 5000,
+      "training_env_steps": 108193,
+      "epsilon": 0.0,
+      "model": "models/seed-3-ep-5000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "q_learning",
+      "seed": 4,
+      "checkpoint_episode": 5000,
+      "training_env_steps": 108409,
+      "epsilon": 0.0,
+      "model": "models/seed-4-ep-5000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    }
+  ],
+  "random_per_seed": [
+    {
+      "seed": 0,
+      "episodes": 200,
+      "successes": 44,
+      "failures": 156,
+      "success_rate_percent": 22.0,
+      "total_env_steps": 55277,
+      "mean_steps_all": 276.385,
+      "mean_steps_success": 192.6590909090909,
+      "mean_env_reward": -830.985,
+      "mean_wall_hits": 144.205,
+      "wall_hit_rate_percent": 52.17540749317076,
+      "mean_unique_cells": 18.815
+    },
+    {
+      "seed": 1,
+      "episodes": 200,
+      "successes": 42,
+      "failures": 158,
+      "success_rate_percent": 21.0,
+      "total_env_steps": 56243,
+      "mean_steps_all": 281.215,
+      "mean_steps_success": 210.54761904761904,
+      "mean_env_reward": -837.705,
+      "mean_wall_hits": 144.425,
+      "wall_hit_rate_percent": 51.35750226694878,
+      "mean_unique_cells": 19.475
+    },
+    {
+      "seed": 2,
+      "episodes": 200,
+      "successes": 44,
+      "failures": 156,
+      "success_rate_percent": 22.0,
+      "total_env_steps": 56331,
+      "mean_steps_all": 281.655,
+      "mean_steps_success": 216.61363636363637,
+      "mean_env_reward": -836.815,
+      "mean_wall_hits": 144.345,
+      "wall_hit_rate_percent": 51.24886829631997,
+      "mean_unique_cells": 19.94
+    },
+    {
+      "seed": 3,
+      "episodes": 200,
+      "successes": 44,
+      "failures": 156,
+      "success_rate_percent": 22.0,
+      "total_env_steps": 55871,
+      "mean_steps_all": 279.355,
+      "mean_steps_success": 206.1590909090909,
+      "mean_env_reward": -832.715,
+      "mean_wall_hits": 143.895,
+      "wall_hit_rate_percent": 51.50972776574609,
+      "mean_unique_cells": 19.155
+    },
+    {
+      "seed": 4,
+      "episodes": 200,
+      "successes": 40,
+      "failures": 160,
+      "success_rate_percent": 20.0,
+      "total_env_steps": 56265,
+      "mean_steps_all": 281.325,
+      "mean_steps_success": 206.625,
+      "mean_env_reward": -841.485,
+      "mean_wall_hits": 145.09,
+      "wall_hit_rate_percent": 51.573802541544474,
+      "mean_unique_cells": 18.975
+    }
+  ],
+  "demo_model": "models/seed-0-ep-5000.json",
+  "demo_selection": "first_requested_seed_not_best_score",
+  "runtime": {
+    "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "source_sha256": {
+    "environment.py": "c27f290aa60a696cce0fbe511563544524699ecbf0331f8f32c8b787eeae2980",
+    "agents.py": "3ebfec46643739615d3f97e46692565103bd9044fc84b0772f367ec62f153b6c",
+    "baseline.py": "9a1a83ddf1f3a1a1afc019bd0e22e436da2657047d216471eaf3b8a454d3adab",
+    "qlearning.py": "1ed4c3a0af6075eb938d3eea53ce03d75809e52082da39c1b46bfb5b614d7265",
+    "train.py": "507a0d53927a6b01f08147182e84fdd524defed7ba372d0c2b0664178631eb39"
+  }
+}

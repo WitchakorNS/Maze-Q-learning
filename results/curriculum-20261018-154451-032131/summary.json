@@ -1,0 +1,592 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "created_at": "2026-10-18T15:44:51.032131+07:00",
+  "environment": {
+    "maze": [
+      "##########",
+      "#S..#....#",
+      "###.#.##.#",
+      "#...#..#.#",
+      "#.####.#.#",
+      "#......#.#",
+      "#.####.#.#",
+      "#.#....#.#",
+      "#...##..G#",
+      "##########"
+    ],
+    "start": [
+      1,
+      1
+    ],
+    "goal": [
+      8,
+      8
+    ],
+    "max_steps": 300,
+    "rewards": {
+      "walk": -1,
+      "wall": -5,
+      "goal": 100
+    },
+    "actions": [
+      "UP",
+      "RIGHT",
+      "DOWN",
+      "LEFT"
+    ]
+  },
+  "config": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "methods": [
+      "plain",
+      "curriculum"
+    ],
+    "training_actions_per_seed": 100000,
+    "budget_unit": "training_action",
+    "alpha": 0.1,
+    "gamma": 0.95,
+    "epsilon_start": 1.0,
+    "epsilon_min": 0.05,
+    "epsilon_decay_per_action": 0.99995,
+    "evaluation_every_actions": 1000,
+    "evaluation_additional_steps": [
+      0,
+      1000,
+      5000,
+      10000,
+      25000,
+      50000,
+      100000
+    ],
+    "easy_radius": 4,
+    "medium_radius": 10,
+    "promotion_window_complete_episodes": 50,
+    "promotion_training_success_threshold": 0.8,
+    "warmup_stage_action_cap": 20000,
+    "stage_cap_checked_at_episode_boundary": true,
+    "epsilon_resets_on_promotion": false,
+    "action_masking": false,
+    "evaluation_epsilon": 0,
+    "evaluation_updates": false,
+    "evaluation_start": [
+      1,
+      1
+    ],
+    "checkpoint_selection": "final_budget",
+    "teacher_has_distance_information": true,
+    "agent_receives_distance_or_route": false
+  },
+  "curriculum_stages": [
+    {
+      "name": "near",
+      "starts": [
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          8,
+          7
+        ]
+      ]
+    },
+    {
+      "name": "middle",
+      "starts": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "real_start",
+      "starts": [
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "method": "plain",
+      "episodes": 5,
+      "successes": 5,
+      "failures": 0,
+      "success_rate_percent": 100.0,
+      "total_env_steps": 90,
+      "mean_steps_all": 18,
+      "mean_steps_success": 18,
+      "mean_env_reward": 83,
+      "mean_wall_hits": 0,
+      "wall_hit_rate_percent": 0.0,
+      "mean_unique_cells": 19,
+      "training_actions_per_seed": 100000,
+      "models_with_observed_success": 5,
+      "mean_first_observed_success_step": 5800,
+      "models_with_three_point_success": 5,
+      "mean_three_point_success_start_step": 6800
+    },
+    {
+      "method": "curriculum",
+      "episodes": 5,
+      "successes": 5,
+      "failures": 0,
+      "success_rate_percent": 100.0,
+      "total_env_steps": 90,
+      "mean_steps_all": 18,
+      "mean_steps_success": 18,
+      "mean_env_reward": 83,
+      "mean_wall_hits": 0,
+      "wall_hit_rate_percent": 0.0,
+      "mean_unique_cells": 19,
+      "training_actions_per_seed": 100000,
+      "models_with_observed_success": 5,
+      "mean_first_observed_success_step": 6800,
+      "models_with_three_point_success": 5,
+      "mean_three_point_success_start_step": 7200
+    }
+  ],
+  "per_seed": [
+    {
+      "method": "plain",
+      "seed": 0,
+      "training_env_steps": 100000,
+      "training_episodes": 4364,
+      "last_training_stage": "real_start",
+      "first_observed_success_step": 5000,
+      "three_point_success_start_step": 7000,
+      "model": "models/plain-seed-0-step-100000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "plain",
+      "seed": 1,
+      "training_env_steps": 100000,
+      "training_episodes": 4358,
+      "last_training_stage": "real_start",
+      "first_observed_success_step": 6000,
+      "three_point_success_start_step": 6000,
+      "model": "models/plain-seed-1-step-100000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "plain",
+      "seed": 2,
+      "training_env_steps": 100000,
+      "training_episodes": 4360,
+      "last_training_stage": "real_start",
+      "first_observed_success_step": 5000,
+      "three_point_success_start_step": 8000,
+      "model": "models/plain-seed-2-step-100000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "plain",
+      "seed": 3,
+      "training_env_steps": 100000,
+      "training_episodes": 4354,
+      "last_training_stage": "real_start",
+      "first_observed_success_step": 6000,
+      "three_point_success_start_step": 6000,
+      "model": "models/plain-seed-3-step-100000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "plain",
+      "seed": 4,
+      "training_env_steps": 100000,
+      "training_episodes": 4355,
+      "last_training_stage": "real_start",
+      "first_observed_success_step": 7000,
+      "three_point_success_start_step": 7000,
+      "model": "models/plain-seed-4-step-100000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "curriculum",
+      "seed": 0,
+      "training_env_steps": 100000,
+      "training_episodes": 4428,
+      "last_training_stage": "real_start",
+      "first_observed_success_step": 7000,
+      "three_point_success_start_step": 7000,
+      "model": "models/curriculum-seed-0-step-100000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "curriculum",
+      "seed": 1,
+      "training_env_steps": 100000,
+      "training_episodes": 4415,
+      "last_training_stage": "real_start",
+      "first_observed_success_step": 8000,
+      "three_point_success_start_step": 8000,
+      "model": "models/curriculum-seed-1-step-100000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "curriculum",
+      "seed": 2,
+      "training_env_steps": 100000,
+      "training_episodes": 4421,
+      "last_training_stage": "real_start",
+      "first_observed_success_step": 6000,
+      "three_point_success_start_step": 8000,
+      "model": "models/curriculum-seed-2-step-100000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "curriculum",
+      "seed": 3,
+      "training_env_steps": 100000,
+      "training_episodes": 4419,
+      "last_training_stage": "real_start",
+      "first_observed_success_step": 6000,
+      "three_point_success_start_step": 6000,
+      "model": "models/curriculum-seed-3-step-100000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    },
+    {
+      "method": "curriculum",
+      "seed": 4,
+      "training_env_steps": 100000,
+      "training_episodes": 4415,
+      "last_training_stage": "real_start",
+      "first_observed_success_step": 7000,
+      "three_point_success_start_step": 7000,
+      "model": "models/curriculum-seed-4-step-100000.json",
+      "steps": 18,
+      "env_reward": 83,
+      "success": true,
+      "terminated": true,
+      "truncated": false,
+      "wall_hits": 0,
+      "unique_cells": 19,
+      "final_row": 8,
+      "final_col": 8
+    }
+  ],
+  "stage_transitions": [
+    {
+      "seed": 0,
+      "episode": 50,
+      "training_env_steps": 3249,
+      "from_stage": "near",
+      "stage_training_actions": 3249,
+      "recent_complete_episodes": 50,
+      "training_success_rate": 0.88,
+      "reason": "success_threshold",
+      "to_stage": "middle"
+    },
+    {
+      "seed": 0,
+      "episode": 100,
+      "training_env_steps": 5740,
+      "from_stage": "middle",
+      "stage_training_actions": 2491,
+      "recent_complete_episodes": 50,
+      "training_success_rate": 0.98,
+      "reason": "success_threshold",
+      "to_stage": "real_start"
+    },
+    {
+      "seed": 1,
+      "episode": 50,
+      "training_env_steps": 2627,
+      "from_stage": "near",
+      "stage_training_actions": 2627,
+      "recent_complete_episodes": 50,
+      "training_success_rate": 0.96,
+      "reason": "success_threshold",
+      "to_stage": "middle"
+    },
+    {
+      "seed": 1,
+      "episode": 100,
+      "training_env_steps": 5618,
+      "from_stage": "middle",
+      "stage_training_actions": 2991,
+      "recent_complete_episodes": 50,
+      "training_success_rate": 0.96,
+      "reason": "success_threshold",
+      "to_stage": "real_start"
+    },
+    {
+      "seed": 2,
+      "episode": 50,
+      "training_env_steps": 2894,
+      "from_stage": "near",
+      "stage_training_actions": 2894,
+      "recent_complete_episodes": 50,
+      "training_success_rate": 0.9,
+      "reason": "success_threshold",
+      "to_stage": "middle"
+    },
+    {
+      "seed": 2,
+      "episode": 100,
+      "training_env_steps": 5671,
+      "from_stage": "middle",
+      "stage_training_actions": 2777,
+      "recent_complete_episodes": 50,
+      "training_success_rate": 0.98,
+      "reason": "success_threshold",
+      "to_stage": "real_start"
+    },
+    {
+      "seed": 3,
+      "episode": 50,
+      "training_env_steps": 2728,
+      "from_stage": "near",
+      "stage_training_actions": 2728,
+      "recent_complete_episodes": 50,
+      "training_success_rate": 0.92,
+      "reason": "success_threshold",
+      "to_stage": "middle"
+    },
+    {
+      "seed": 3,
+      "episode": 100,
+      "training_env_steps": 5247,
+      "from_stage": "middle",
+      "stage_training_actions": 2519,
+      "recent_complete_episodes": 50,
+      "training_success_rate": 1.0,
+      "reason": "success_threshold",
+      "to_stage": "real_start"
+    },
+    {
+      "seed": 4,
+      "episode": 50,
+      "training_env_steps": 3127,
+      "from_stage": "near",
+      "stage_training_actions": 3127,
+      "recent_complete_episodes": 50,
+      "training_success_rate": 0.94,
+      "reason": "success_threshold",
+      "to_stage": "middle"
+    },
+    {
+      "seed": 4,
+      "episode": 100,
+      "training_env_steps": 5641,
+      "from_stage": "middle",
+      "stage_training_actions": 2514,
+      "recent_complete_episodes": 50,
+      "training_success_rate": 0.98,
+      "reason": "success_threshold",
+      "to_stage": "real_start"
+    }
+  ],
+  "demo_models": {
+    "plain": "models/plain-seed-0-step-100000.json",
+    "curriculum": "models/curriculum-seed-0-step-100000.json"
+  },
+  "demo_selection": "first_requested_seed_not_best_score",
+  "runtime": {
+    "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "source_sha256": {
+    "environment.py": "a400139f878d1e298b2e31611ec57d8fc441b1294f73e2c95506d31e367e219c",
+    "qlearning.py": "1ed4c3a0af6075eb938d3eea53ce03d75809e52082da39c1b46bfb5b614d7265",
+    "curriculum.py": "62f78e0bcf5c6c5ced8d90c1f65c7af3ce9e6a7ef354f40db800742e1dc431ec",
+    "train.py": "507a0d53927a6b01f08147182e84fdd524defed7ba372d0c2b0664178631eb39",
+    "baseline.py": "9a1a83ddf1f3a1a1afc019bd0e22e436da2657047d216471eaf3b8a454d3adab"
+  },
+  "learning_curve": "learning_curve.png"
+}
